@@ -12,7 +12,7 @@ author:
 last_modified_at: 2019-12-27T14:25:52-05:00
 ---
 
-**[Functional Progamming 시리즈 목차](https://dream365.github.io/docs/functional%20programming/fp-content/)**<br>   
+**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/)**<br>   
 
 순수함수는 주어진 input값에 대한 동작을 수행하여 항상 같은 output을 제공합니다. 이렇듯, 상태를 다루지 않는 특징으로 인해 사이드 이펙트가 없다는 장점이 있습니다. 이러한 일부 순수함수에서 복잡한 계산이 이루어지는 경우가 있습니다.<!--more-->
 예를 들어, 서버 사이드에서 클라이언트에게 이런 값비싼 계산이 포함된 API를 제공해주는 경우, 클라이언트가 1000번 해당 API를 호출했다면 계산 또한 1000번 이루어지게 됩니다. 

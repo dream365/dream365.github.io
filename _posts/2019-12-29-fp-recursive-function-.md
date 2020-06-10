@@ -12,7 +12,7 @@ author:
 last_modified_at: 2019-12-29T14:25:52-05:00
 ---
 
-**[Functional Progamming 시리즈 목차](https://dream365.github.io/docs/functional%20programming/fp-content/)**<br>
+**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/)**<br>
 
 함수형 프로그래밍에서 반복문 형식의 처리와 관련한 recursive function과 tail recurtion에 대하여 다룹니다.
 <!--more-->

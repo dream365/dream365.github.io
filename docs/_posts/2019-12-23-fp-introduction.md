@@ -11,7 +11,7 @@ author:
 last_modified_at: 2019-12-23T14:25:52-05:00
 ---
 
-**[Functional Progamming 시리즈 목차](https://dream365.github.io/dev/fp)**<br>
+**[Functional Progamming 시리즈 목차](https://dream365.github.io/docs/functional%20programming/fp-content/)**<br>
 
 ## Functional Programming?
 함수형 프로그래밍은 하나의 패러다임(프로그램을 구성하는 스타일)입니다.  <!--more-->

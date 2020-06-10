@@ -92,7 +92,7 @@ defaults:
 # Site Author
 author:
   name: Sewon Ko
-  picture:
+  picture: /images/sw_profile.png
   email: kosewon_@naver.com
   twitter:
   links:

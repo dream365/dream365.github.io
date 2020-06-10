@@ -2,6 +2,7 @@
 title: "FP: Introduction"
 categories:
   - Functional Programming
+  - 2019
 tags:
   - Functional Programming
   - Kotlin

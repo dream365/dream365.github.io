@@ -18,7 +18,7 @@ theme: jekyll-theme-so-simple
 skin: "/assets/css/skins/default.css"
 locale: en-US
 title: "Passion in Development"
-description: "It really is the best."
+description: "Sewon Ko's blog"
 baseurl: "" 
 url: "https://dream365.github.io"
 logo: # path of site logo, e.g. "/images/logo.png"

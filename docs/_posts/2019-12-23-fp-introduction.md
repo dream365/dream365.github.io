@@ -2,10 +2,12 @@
 title: "FP: Introduction"
 categories:
   - Functional Programming
-  - 2019
 tags:
   - Functional Programming
   - Kotlin
+author:
+  name: Sewon Ko
+  picture: /images/sw-profile.png
 last_modified_at: 2019-12-23T14:25:52-05:00
 ---
 

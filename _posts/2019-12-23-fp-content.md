@@ -15,7 +15,7 @@ last_modified_at: 2019-12-23T14:25:52-05:00
 
 **1. [Introduction](https://dream365.github.io/functional%20programming/fp-introduction/)**  
 
-**2. Lambda**  
+**2. [Lambda](https://dream365.github.io/functional%20programming/fp-lambda/)**  
 
 **3. Map, Reduce, Filter**  
 

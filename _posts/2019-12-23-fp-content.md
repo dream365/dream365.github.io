@@ -17,7 +17,7 @@ last_modified_at: 2019-12-23T14:25:52-05:00
 
 **2. [Lambda](https://dream365.github.io/functional%20programming/fp-lambda/)**  
 
-**3. Map, Reduce, Filter**  
+**3. [Map, Reduce, Filter](https://dream365.github.io/functional%20programming/fp-map-reduce-filter/)**  
 
 **4. [Recursive Function](https://dream365.github.io/functional%20programming/fp-recursive-function/)**  
 

@@ -51,7 +51,7 @@ ____
 ```
 
 #### C#
-```sharp
+```csharp
 //System.Linq 추가
  var value = seq.Select(x => x*x)    //map
                 .Where(x => x%2 == 0)           //filter
@@ -59,7 +59,7 @@ ____
 ```
 
 #### F#
-```sharp
+```fsharp
 let seq = [|1;2;3;4;5|]
 let value = seq
             |> Seq.map (fun x -> x*x)

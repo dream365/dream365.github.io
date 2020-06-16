@@ -110,7 +110,7 @@ var (name, address, city, _) = GetAddressInfo();
 ```
 
 #### F#
-```F#
+```fsharp
 //아주 다양한 매칭을 제공합니다.
 
 //기본적으로 match - with - | pattern -> 식 꼴입니다.

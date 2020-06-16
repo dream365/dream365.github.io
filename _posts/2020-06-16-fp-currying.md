@@ -16,7 +16,7 @@ author:
 last_modified_at: 2020-06-16T14:25:52-05:00
 ---
 
-**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/)**<br>
+**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/){: .btn .btn--primary}**<br>
 
 함수형 프로그래밍의 커링(Currying)에 대하여 다룹니다.
 <!--more-->

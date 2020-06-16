@@ -4,7 +4,6 @@ categories:
   - Functional Programming
 tags:
   - Functional Programming
-  - C++
   - C#
   - F#
   - Clojure
@@ -35,12 +34,8 @@ last_modified_at: 2020-06-16T14:25:52-05:00
 
 ____
 ## Example
-C++의 경우 Lazy 리스트를 지원하지는 않으나 클래스 객체를 만들때 연산자 오버로딩등을 통하여 지연되게 생성 시킬 수 있습니다.
-
 #### C++
-```C++
-// 전체 코드 생략
-```
+C++의 경우 Lazy 리스트를 지원하지는 않으나 클래스 객체를 만들때 연산자 오버로딩등을 통하여 지연되게 생성 시킬 수 있습니다.
 
 #### C#
 ```csharp

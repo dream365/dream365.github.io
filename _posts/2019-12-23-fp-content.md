@@ -25,7 +25,7 @@ last_modified_at: 2019-12-23T14:25:52-05:00
 
 **6. [Memozation](https://dream365.github.io/functional%20programming/fp-memoization/)**  
 
-**7. Lazy Loading**  
+**7. [Lazy Loading](https://dream365.github.io/functional%20programming/fp-lazy-loading/)**  
 
 **8. [Option & Either Class](https://dream365.github.io/functional%20programming/fp-option-either/)**  
 

@@ -10,24 +10,24 @@ author:
 last_modified_at: 2020-06-16T20:38:52-05:00
 ---
 
->> Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 포스팅입니다.
+> Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 포스팅입니다.
 
 ![logo](/images/map-struct-logo.png)
 
 ## MapStruct란 무엇인가?    
 
-- configuration을 기반으로 Java Bean들을 서로 mapping 시켜주는 code generator 프로젝트 
+- configuration을 기반으로 Java Bean들을 서로 mapping 시켜주는 **code generator** 프로젝트 
  
-- 생성된 매핑 코드는 일반적인 메소드 호출을 사용하여 이해 하기 쉽고, 빠르고, 타입 안정성을 지켜줌
+- 생성된 매핑 코드는 일반적인 메소드 호출을 사용하여 이해 하기 **쉽고, 빠르고, 타입 안정성**을 지켜줌
 
 ## 왜 사용할까?    
-Multi-layered 어플리케이션에서 다른 계층 혹은 다른 쓰임새를 갖는 object 모델들(예를 들어, 테이블 엔티티와 DTO)사이의 맵핑이 자주 요구된다. 이런 매핑 코드를 일일히 작성하는 것은 매우 지루하고 오류가 발생하기 쉬운 작업이므로, 이런 MapStruct와 같은 기술을 사용하여 최대한 자동화하고 단순화하려고 사용  
+Multi-layered 어플리케이션에서 다른 계층 혹은 다른 쓰임새를 갖는 object 모델들(예를 들어, 테이블 엔티티와 DTO)사이의 맵핑이 자주 요구된다. 이런 매핑 코드를 일일히 작성하는 것은 **매우 지루하고 오류가 발생**하기 쉬운 작업이므로, 이런 MapStruct와 같은 기술을 사용하여 최대한 **자동화하고 단순화**하려고 사용  
 
-다른 Mapping Framework들과 달리 MapStruct는 컴파일 타입에 빈 맵핑을 하고 코드를 생성하여 high performance를 보장하고 개발자의 빠른 피드백과 오류 확인을 가능하게 해줌  
+다른 Mapping Framework들과 달리 MapStruct는 컴파일 타입에 빈 맵핑을 하고 코드를 생성하여 **high performance**를 보장하고 개발자의 **빠른 피드백과 오류 확인**을 가능하게 해줌  
 
 ## 어떻게 사용할까?
-MapStruct는 annotation processor로 작동되어서, gradle이나 메이븐 같은 매니징 툴의 플러그인으로 손쉽게 사용할 수 있음
-______
+**MapStruct**는 **annotation processor**로 작동되어서, gradle이나 메이븐 같은 매니징 툴의 플러그인으로 손쉽게 사용할 수 있음
+=============    
 
 ## 간단한 예제
 

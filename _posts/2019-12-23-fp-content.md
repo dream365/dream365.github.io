@@ -21,7 +21,7 @@ last_modified_at: 2019-12-23T14:25:52-05:00
 
 **4. [Recursive Function](https://dream365.github.io/functional%20programming/fp-recursive-function/)**  
 
-**5. Currying**  
+**5. [Currying](https://dream365.github.io/functional%20programming/fp-currying/)**  
 
 **6. [Memozation](https://dream365.github.io/functional%20programming/fp-memoization/)**  
 

@@ -1,9 +1,10 @@
 ---
 title: "MapStruct: Introduction"
 categories:
-  - Java
+  - MapStruct
 tags:
   - Java
+  - MapStruct
 author:
   name: Sewon Ko
   picture: /images/sw-profile.png

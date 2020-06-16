@@ -64,7 +64,7 @@ int main()
 ```
 
 #### C#
-```sharp
+```csharp
 static bool IsItemInList(int x, List<int> list)
 {
     return list.FindIndex( i => i == x) != -1;
@@ -79,7 +79,7 @@ static void Main(string[] args)
 ```
 
 #### F#
-```sharp
+```fsharp
 let IsItemInlist list x = 
     Seq.tryFind (fun i -> i = x) list
 

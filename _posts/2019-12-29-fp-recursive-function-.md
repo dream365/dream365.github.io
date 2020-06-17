@@ -12,10 +12,9 @@ author:
 last_modified_at: 2019-12-29T14:25:52-05:00
 ---
 
-**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/){: .btn .btn--primary}**<br>
+함수형 프로그래밍에서 반복문 형식의 처리와 관련한 recursive function과 tail recurtion에 대하여 다룹니다.    
 
-함수형 프로그래밍에서 반복문 형식의 처리와 관련한 recursive function과 tail recurtion에 대하여 다룹니다.
-<!--more-->
+**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/){: .btn .btn--primary}**<br>    
 
 # Recursive Function 
 재귀 함수는 함수를 구현할 때 자기 자신을 반복적으로 호출하여 반복문과 같이 표현하는 함수를 말합니다. 반복문의 경우 더 많은 변수와 이것들로 인해 발생하는 상태를 관리해야 함으로 함수형 프로그래밍 패러다임과는 다소 맞지 않으며, 변수가 줄어들고 좀 더 직관적인 코드를 작성할 수 있기 때문에 때문에 가독성이 좋아집니다. 함수형 프로그래밍에서는 이러한 반복문과 같은 형태의 코드를 작성하기 위하여 일급 함수를 재귀적으로 호출하여 사용합니다.  

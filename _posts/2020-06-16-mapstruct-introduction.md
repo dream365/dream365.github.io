@@ -11,7 +11,7 @@ author:
 last_modified_at: 2020-06-16T20:38:52-05:00
 ---
 
-> Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 포스팅입니다.
+Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 소개 포스팅입니다.
 
 ![logo](/images/map-struct-logo.png)
 

@@ -13,10 +13,9 @@ author:
 last_modified_at: 2019-12-26T14:25:52-05:00
 ---
 
-**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/){: .btn .btn--primary}**<br>
+함수형 프로그래밍에서 null과 관련된 처리를 하는 2가지 클래스인 Option과 Either 클래스에 대해서 다룹니다.    
 
-함수형 프로그래밍에서 null과 관련된 처리를 하는 2가지 클래스인 Option과 Either 클래스에 대해서 다룹니다.
-<!--more-->
+**[Functional Progamming 시리즈 목차](https://dream365.github.io/functional%20programming/fp-content/){: .btn .btn--primary}**<br>    
 
 ## Option class
 값이 있는지 없는지 여부를 체크하기 위한 타입으로, null이나 error Checking을 안전하게 할 수 있습니다.

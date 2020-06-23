@@ -103,7 +103,6 @@ public class CarMapperImpl implements CarMapper {
 
 ```java
 @Mapper
-
 public interface CarMapper {
 
     @Mapping(...)

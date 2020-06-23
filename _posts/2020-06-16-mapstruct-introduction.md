@@ -1,12 +1,12 @@
 ---
 title: "MapStruct: Introduction"
+image:
+  thumbnail: /images/map-struct-logo-400x200.png
 categories:
   - MapStruct
 tags:
   - Java
   - MapStruct
-Image:
-  thumbnail: /images/map-struct-logo-400x200.png
 author:
   name: Sewon Ko
   picture: /images/sw-profile.png

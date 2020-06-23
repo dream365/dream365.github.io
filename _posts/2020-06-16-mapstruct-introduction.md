@@ -5,6 +5,8 @@ categories:
 tags:
   - Java
   - MapStruct
+Image:
+  thumbnail: /images/map-struct-logo-400x200.png
 author:
   name: Sewon Ko
   picture: /images/sw-profile.png
@@ -13,7 +15,7 @@ last_modified_at: 2020-06-16T20:38:52-05:00
 
 Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 소개 포스팅입니다.
 
-![logo](/images/map-struct-logo.png)
+{% include toc %}
 
 ## MapStruct란 무엇인가?    
 
@@ -68,7 +70,7 @@ public interface OrderMapper {
 
     OrderMapper INSTANCE = Mappers.getMapper( OrderMapper.class ); // (3)
 
-    @Mapping(source = "numberOfProducts", target = "productCount)
+    @Mapping(source = "numberOfProducts", target = "productCount")
     OrderDto orderToOrderDto(Order order); // (2)
 }
 ```

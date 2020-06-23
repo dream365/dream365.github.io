@@ -115,7 +115,7 @@ public interface CarMapper {
 }
 ```
 
-위의 예제와 같이 **personToPersonDto**를 인터페이스의 *default method**를 활용하여 구현해주면, **carToCarDto()**는 MapStruct에 의해 자동으로 코드를 구현해주고 내부적으로 car의 **driver property**를 Mapping할 때 수동으로 구현된 **personToPersonDto()**를 호출하여 Conversion 해준다.    
+위의 예제와 같이 **personToPersonDto**를 인터페이스의 **default method**를 활용하여 구현해주면, **carToCarDto()**는 MapStruct에 의해 자동으로 코드를 구현해주고 내부적으로 car의 **driver property**를 Mapping할 때 수동으로 구현된 **personToPersonDto()**를 호출하여 Conversion 해준다.    
 
 **default method**뿐 아니라, **abstract class**를 구현하여 **Custom Method**를 구현할 수도 있다.
 

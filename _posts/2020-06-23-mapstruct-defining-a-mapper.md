@@ -94,3 +94,44 @@ public class CarMapperImpl implements CarMapper {
 - 만일 source와 target property의 **type**이 다르다면 자동으로 conversion 해줌(위 예제의 price property) 또는, 다른 **mapping method**를 생성 후 호출(위 예제의 driver, engine property)
 
 - **Collection Type property**의 경우 element type이 같다면 새로운 collection 객체를 생성하여 값을 복사해주고, 다르다면 각각의 element들을 conversion한 뒤 새로운 collection 객체에 값 복사해준다.
+
+## 맵퍼에 커스텀 메서드 추가하기
+
+몇몇 케이스의 경우 MapStruct가 자동으로 코드를 생성할 수 없어, 사용자가 **수동으로 구현**을 해주어야 할 때가 있다. 이때 Java 8에서 도입된 **default method**, 혹은 **abstract class**를 사용하여 구현할 수 있다.
+
+위의 예제에서 Person을 PersonDto로 맵핑하는 부분에 **특별한 logic**이 있어 MapStruct가 자동으로 코드를 생성해 주지 못한다고 가정해보자.
+
+```java
+@Mapper
+
+public interface CarMapper {
+
+    @Mapping(...)
+    ...
+    CarDto carToCarDto(Car car);
+
+    default PersonDto personToPersonDto(Person person) {
+        //hand-written mapping logic
+    }
+}
+```
+
+위의 예제와 같이 **personToPersonDto**를 인터페이스의 *default method**를 활용하여 구현해주면, **carToCarDto()**는 MapStruct에 의해 자동으로 코드를 구현해주고 내부적으로 car의 **driver property**를 Mapping할 때 수동으로 구현된 **personToPersonDto()**를 호출하여 Conversion 해준다.    
+
+**default method**뿐 아니라, **abstract class**를 구현하여 **Custom Method**를 구현할 수도 있다.
+
+```java
+@Mapper
+public abstract class CarMapper {
+
+    @Mapping(...)
+    ...
+    public abstract CarDto carToCarDto(Car car);
+
+    public PersonDto personToPersonDto(Person person) {
+        //hand-written mapping logic
+    }
+}
+```
+
+**abstract class**를 사용할 경우, CarMapper를 **상속**받아 구현하는 **구현체**를 자동 생성해주고 **default method** 사용과 마찬가지로 수동으로 구현된 **personToPersonDto()**를 호출하여 사용한다.

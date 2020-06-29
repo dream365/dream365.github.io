@@ -1,6 +1,6 @@
 ---
 layout: home
-pagination: true
+paginate: true
 show_excerpts: true
 entries_layout: list
 ---

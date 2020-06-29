@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>FP: Lazy Loading | Passion in Development</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="FP: Lazy Loading" />
+<meta name="author" content="Sewon Ko" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="함수형 프로그래밍의 Lazy Loading에 대하여 다룹니다." />
+<meta property="og:description" content="함수형 프로그래밍의 Lazy Loading에 대하여 다룹니다." />
+<link rel="canonical" href="https://dream365.github.io/functional%20programming/fp-lazy-loading/" />
+<meta property="og:url" content="https://dream365.github.io/functional%20programming/fp-lazy-loading/" />
+<meta property="og:site_name" content="Passion in Development" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-16T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="FP: Lazy Loading" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Sewon Ko" />
+<script type="application/ld+json">
+{"description":"함수형 프로그래밍의 Lazy Loading에 대하여 다룹니다.","author":{"@type":"Person","name":"Sewon Ko"},"@type":"BlogPosting","url":"https://dream365.github.io/functional%20programming/fp-lazy-loading/","headline":"FP: Lazy Loading","dateModified":"2020-06-17T04:25:52+09:00","datePublished":"2020-06-16T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://dream365.github.io/functional%20programming/fp-lazy-loading/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="Passion in Development" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  fp-lazy-loading">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/search/">Search</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">Passion in Development</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Sewon Ko's blog</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">FP: Lazy Loading
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/sw-profile.png" class="author-avatar u-photo" alt="Sewon Ko"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Sewon Ko</span>
+      </div>
+    <time class="page-date dt-published" datetime="2020-06-16T00:00:00+09:00"><a class="u-url" href="">June 16, 2020</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Functional Programming</li>
+  </ul>
+
+
+        
+  <h3 class="page-taxonomies-title">Tags</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">C#</li><li class="page-taxonomy">Clojure</li><li class="page-taxonomy">F#</li>
+  </ul>
+
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <p>함수형 프로그래밍의 Lazy Loading에 대하여 다룹니다.</p>
+
+<p><strong><a href="https://dream365.github.io/functional%20programming/fp-content/" class="btn btn--primary">Functional Progamming 시리즈 목차</a></strong><br /></p>
+
+<h1 id="lazy">Lazy</h1>
+<p>필요(요구)할떄 결과를 계산하는 방식입니다.<br />
+필요할때 객체를 생성하면 Lazy Initialization<br />
+필요할때 식을 평가하면 Lazy Evaluation</p>
+
+<h3 id="장점">장점</h3>
+<p>처음에 모든것을 초기화하는데 장시간 소요되는것을 막습니다.
+무한한 리스트를 생성할 수 있습니다.</p>
+
+<h3 id="단점">단점</h3>
+<p>필요할때 마다 계산을 요합니다. (단 자주쓰이는 경우 메모지에이션이 가능합니다.)
+지연과 즉시중에 좋은 경우를 골라 잘 사용해야합니다.</p>
+
+<hr />
+<h2 id="example">Example</h2>
+<h4 id="c">C++</h4>
+<p>C++의 경우 Lazy 리스트를 지원하지는 않으나 클래스 객체를 만들때 연산자 오버로딩등을 통하여 지연되게 생성 시킬 수 있습니다.</p>
+
+<h4 id="c-1">C#</h4>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// IEnumerable 과 yield 키워드를 통하여 Lazy 하게 구현할수있습니다.</span>
+<span class="c1">// Lazy Init 을 위해 Lazy&lt;T&gt; 클래스를 제공합니다.</span>
+</code></pre></div></div>
+
+<h4 id="f">F#</h4>
+<div class="language-fsharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Lazy 키워드를 제공합니다.</span>
+<span class="k">let</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="k">let</span> <span class="n">result</span> <span class="p">=</span> <span class="k">lazy</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">printfn</span> <span class="s2">"%d"</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="nc">Force</span><span class="bp">()</span><span class="p">)</span> <span class="c1">//Force 는 한번만 실행됩니다.</span>
+<span class="c1">//이는 C# 의 Lazy&lt;T&gt; 클래스로 구현됩니다.</span>
+
+<span class="c1">// Sequence (seq) 를 제공합니다.</span>
+<span class="c1">// Seq는 c# 에서 IEnumberable 에 해당합니다.</span>
+<span class="c1">// 무한 시퀀스도 만들수 있습니다.</span>
+<span class="k">let</span> <span class="n">seqInfinite</span> <span class="p">=</span>
+    <span class="nn">Seq</span><span class="p">.</span><span class="n">initInfinite</span> <span class="p">(</span><span class="k">fun</span> <span class="n">index</span> <span class="p">-&gt;</span>
+        <span class="k">let</span> <span class="n">n</span> <span class="p">=</span> <span class="kt">float</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="p">*</span> <span class="n">n</span> <span class="p">*</span> <span class="p">(</span><span class="k">if</span> <span class="o">((</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="p">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="k">else</span> <span class="p">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="o">)))</span>
+
+<span class="n">printfn</span> <span class="s2">"%A"</span> <span class="n">seqInfinite</span>
+    
+</code></pre></div></div>
+
+<h4 id="clojure">clojure</h4>
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;lazy 함수가 존재합니다 (lazy-seq)</span><span class="w">
+</span><span class="c1">;Clojure는 완전히 lazy한 것이 아니며 map, reduce, filter 또는 반복과 같은 대부분의 시퀀스 작업 만 lazy 합니다.</span><span class="w">
+</span><span class="c1">;clojure 의 range는 lazy 한 무한 시퀀스입니다.</span><span class="w">
+</span><span class="c1">;dorun 과 doall 등의 키워드를 통하여 realize 할수있습니다. (F#의 포스와 비슷합니다)</span><span class="w">
+
+</span><span class="c1">;map   filter   remove   range   take   take-while   drop   drop-while</span><span class="w">
+</span><span class="c1">;repeat    iterate    cycle 등..</span><span class="w">
+
+</span></code></pre></div></div>
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-lazy-loading%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--facebook btn--small"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> <span>Share</span></a>
+  <a href="https://twitter.com/intent/tweet?text=FP%3A+Lazy+Loading%20https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-lazy-loading%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-lazy-loading%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--linkedin btn--small"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> <span>LinkedIn</span></a>
+  <a href="https://reddit.com/submit?title=FP%3A+Lazy+Loading&url=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-lazy-loading%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--reddit btn--small"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i> <span>Reddit</span></a>
+</div>
+
+        
+
+        
+          
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/functional%20programming/fp-currying/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> FP: Currying
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/functional%20programming/fp-pattern-matching-destructuring/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        FP: Pattern Matching &amp; Destruction
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a><a class="social-icon" href="https://github.com/dream365"><i class="fab fa-github-square fa-2x" title="GitHub"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2020 Passion in Development. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

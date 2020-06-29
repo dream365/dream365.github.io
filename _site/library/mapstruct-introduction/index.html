@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>MapStruct: Introduction | Passion in Development</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="MapStruct: Introduction" />
+<meta name="author" content="Sewon Ko" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 소개 포스팅입니다." />
+<meta property="og:description" content="Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 소개 포스팅입니다." />
+<link rel="canonical" href="https://dream365.github.io/library/mapstruct-introduction/" />
+<meta property="og:url" content="https://dream365.github.io/library/mapstruct-introduction/" />
+<meta property="og:site_name" content="Passion in Development" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-16T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MapStruct: Introduction" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Sewon Ko" />
+<script type="application/ld+json">
+{"description":"Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 소개 포스팅입니다.","author":{"@type":"Person","name":"Sewon Ko"},"@type":"BlogPosting","url":"https://dream365.github.io/library/mapstruct-introduction/","headline":"MapStruct: Introduction","dateModified":"2020-06-17T10:38:52+09:00","datePublished":"2020-06-16T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://dream365.github.io/library/mapstruct-introduction/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="Passion in Development" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  mapstruct-introduction">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/search/">Search</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">Passion in Development</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Sewon Ko's blog</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">MapStruct: Introduction
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/sw-profile.png" class="author-avatar u-photo" alt="Sewon Ko"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Sewon Ko</span>
+      </div>
+    <time class="page-date dt-published" datetime="2020-06-16T00:00:00+09:00"><a class="u-url" href="">June 16, 2020</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Library</li>
+  </ul>
+
+
+        
+  <h3 class="page-taxonomies-title">Tags</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Java</li><li class="page-taxonomy">MapStruct</li>
+  </ul>
+
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <p>Java Bean Mapping을 쉽게하기 위한 Java 프로젝트인 MapStruct에 대한 소개 포스팅입니다.</p>
+
+<p><img src="/images/map-struct-logo.png" alt="logo" /></p>
+
+<div id="entry-table-of-contents" class="toc-wrapper">
+  <h2 id="toc-toggle" class="no_toc">
+  Table of Contents <i class="toc-toggle-icon fas fa-chevron-down"></i>
+</h2>
+<ol id="markdown-toc">
+  <li><a href="#mapstruct란-무엇인가" id="markdown-toc-mapstruct란-무엇인가">MapStruct란 무엇인가?</a></li>
+  <li><a href="#왜-사용할까" id="markdown-toc-왜-사용할까">왜 사용할까?</a></li>
+  <li><a href="#어떻게-사용할까" id="markdown-toc-어떻게-사용할까">어떻게 사용할까?</a></li>
+  <li><a href="#간단한-예제" id="markdown-toc-간단한-예제">간단한 예제</a>    <ol>
+      <li><a href="#model" id="markdown-toc-model">Model</a></li>
+      <li><a href="#mapper-interface" id="markdown-toc-mapper-interface">Mapper Interface</a></li>
+      <li><a href="#mapper를-이용한-동작-테스트" id="markdown-toc-mapper를-이용한-동작-테스트">Mapper를 이용한 동작 테스트</a></li>
+    </ol>
+  </li>
+</ol>
+
+</div>
+
+<h2 id="mapstruct란-무엇인가">MapStruct란 무엇인가?</h2>
+
+<ul>
+  <li>
+    <p>configuration을 기반으로 Java Bean들을 서로 mapping 시켜주는 <strong>code generator</strong> 프로젝트</p>
+  </li>
+  <li>
+    <p>생성된 매핑 코드는 일반적인 메소드 호출을 사용하여 이해 하기 <strong>쉽고, 빠르고, 타입 안정성</strong>을 지켜줌</p>
+  </li>
+</ul>
+
+<h2 id="왜-사용할까">왜 사용할까?</h2>
+<p>Multi-layered 어플리케이션에서 다른 계층 혹은 다른 쓰임새를 갖는 object 모델들(예를 들어, 테이블 엔티티와 DTO)사이의 맵핑이 자주 요구된다. 이런 매핑 코드를 일일히 작성하는 것은 <strong>매우 지루하고 오류가 발생</strong>하기 쉬운 작업이므로, 이런 MapStruct와 같은 기술을 사용하여 최대한 <strong>자동화하고 단순화</strong>하려고 사용</p>
+
+<p>다른 Mapping Framework들과 달리 MapStruct는 컴파일 타입에 빈 맵핑을 하고 코드를 생성하여 <strong>high performance</strong>를 보장하고 개발자의 <strong>빠른 피드백과 오류 확인</strong>을 가능하게 해줌</p>
+
+<h2 id="어떻게-사용할까">어떻게 사용할까?</h2>
+<p><strong>MapStruct</strong>는 <strong>annotation processor</strong>로 작동되어서, gradle이나 메이븐 같은 매니징 툴의 플러그인으로 손쉽게 사용할 수 있음</p>
+
+<h2 id="간단한-예제">간단한 예제</h2>
+
+<p>다음 예제는 어떻게 2개의 오브젝트를 서로 맵핑하는지 보여준다.</p>
+
+<p><strong>주문(Order)</strong>를 표현하는 <strong>JPA 엔티티</strong>와 <strong>DTO</strong>가 있다고 가정해보자, 2가지 모델은 매우 비슷하지만 오직 <strong>상품 갯수를 카운팅하는 attribute의 이름</strong>과 <strong>서비스 타입을 나타내는 attribute의 자료형</strong>이 다르다.</p>
+
+<h4 id="model">Model</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Order</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">numberOfProducts</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">ServiceType</span> <span class="n">type</span><span class="o">;</span>
+
+    <span class="c1">//constructor, getters, setters etc.</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderDto</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">productCount</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">type</span><span class="o">;</span>
+
+    <span class="c1">//constructor, getters, setters etc.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="mapper-interface">Mapper Interface</h4>
+
+<p><strong>Order</strong>로부터 <strong>OrderDto</strong>를 맵핑하기 위하여 <strong>mapper interface</strong>가 필요</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Mapper</span> <span class="c1">// (1)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrderMapper</span> <span class="o">{</span>
+
+    <span class="nc">OrderMapper</span> <span class="no">INSTANCE</span> <span class="o">=</span> <span class="nc">Mappers</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span> <span class="nc">OrderMapper</span><span class="o">.</span><span class="na">class</span> <span class="o">);</span> <span class="c1">// (3)</span>
+
+    <span class="nd">@Mapping</span><span class="o">(</span><span class="n">source</span> <span class="o">=</span> <span class="s">"numberOfProducts"</span><span class="o">,</span> <span class="n">target</span> <span class="o">=</span> <span class="s">"productCount"</span><span class="o">)</span>
+    <span class="nc">OrderDto</span> <span class="nf">orderToOrderDto</span><span class="o">(</span><span class="nc">Order</span> <span class="n">order</span><span class="o">);</span> <span class="c1">// (2)</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>@Mapper 어노테이션은 MapStruct 프로세서에게 컴파일 타임에 해당 인터페이스가 Mapper Interface임을 알 수 있게 해준다.</p>
+  </li>
+  <li>
+    <ul>
+      <li>source 오브젝트를 파라미터로 하여 target object를 리턴함(function naming은 자유로움)</li>
+      <li>source 및 target object의 attribute의 이름이 다른 경우 @Mapping 어노테이션을 사용</li>
+      <li>가능한 경우 source object에서 다른 유형으로의 자료형 변환이 이루어진다(해당 예제에서 type attribute는 enum에서 문자열로 변환)</li>
+      <li>당연히 하나의 인터페이스에 여러가지 매핑 방법이 있을 수 있으며 모두 MapStruct 프로세서에 의해 코드가 생성됨</li>
+    </ul>
+  </li>
+  <li>일반적으로 인터페이스는 멤버 INSTANCE를 선언하여 클라이언트가 Mapper의 구현체에 접근 할 수 있도록 해줌</li>
+</ol>
+
+<h4 id="mapper를-이용한-동작-테스트">Mapper를 이용한 동작 테스트</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldMapOrderToDto</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">//given</span>
+    <span class="nc">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Order</span><span class="o">(</span> <span class="s">"order_001"</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="nc">ServiceType</span><span class="o">.</span><span class="na">FOOD</span> <span class="o">);</span>
+ 
+    <span class="c1">//when</span>
+    <span class="nc">OrderDto</span> <span class="n">orderDto</span> <span class="o">=</span> <span class="nc">OrderMapper</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">.</span> <span class="nf">orderToOrderDto</span><span class="o">(</span> <span class="n">order</span> <span class="o">);</span>
+ 
+    <span class="c1">//then</span>
+    <span class="n">assertThat</span><span class="o">(</span> <span class="n">orderDto</span> <span class="o">).</span><span class="na">isNotNull</span><span class="o">();</span>
+    <span class="n">assertThat</span><span class="o">(</span> <span class="n">orderDto</span><span class="o">.</span><span class="na">getCode</span><span class="o">()</span> <span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span> <span class="s">"order_001"</span> <span class="o">);</span>
+    <span class="n">assertThat</span><span class="o">(</span> <span class="n">orderDto</span><span class="o">.</span><span class="na">getProductCount</span><span class="o">()</span> <span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span> <span class="mi">3</span> <span class="o">);</span>
+    <span class="n">assertThat</span><span class="o">(</span> <span class="n">orderDto</span><span class="o">.</span><span class="na">getType</span><span class="o">()</span> <span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span> <span class="s">"FOOD"</span> <span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdream365.github.io%2Flibrary%2Fmapstruct-introduction%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--facebook btn--small"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> <span>Share</span></a>
+  <a href="https://twitter.com/intent/tweet?text=MapStruct%3A+Introduction%20https%3A%2F%2Fdream365.github.io%2Flibrary%2Fmapstruct-introduction%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdream365.github.io%2Flibrary%2Fmapstruct-introduction%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--linkedin btn--small"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> <span>LinkedIn</span></a>
+  <a href="https://reddit.com/submit?title=MapStruct%3A+Introduction&url=https%3A%2F%2Fdream365.github.io%2Flibrary%2Fmapstruct-introduction%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--reddit btn--small"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i> <span>Reddit</span></a>
+</div>
+
+        
+
+        
+          
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/functional%20programming/fp-pattern-matching-destructuring/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> FP: Pattern Matching &amp; Destruction
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/library/mapstruct-defining-a-mapper/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        MapStruct: Defining a mapper
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a><a class="social-icon" href="https://github.com/dream365"><i class="fab fa-github-square fa-2x" title="GitHub"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2020 Passion in Development. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

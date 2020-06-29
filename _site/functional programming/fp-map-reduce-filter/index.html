@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>FP: Map &amp; Reduce &amp; Filter | Passion in Development</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="FP: Map &amp; Reduce &amp; Filter" />
+<meta name="author" content="Sewon Ko" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="함수형 프로그래밍의 고차함수(Map &amp; Reduce &amp; Filter)에 대하여 다룹니다." />
+<meta property="og:description" content="함수형 프로그래밍의 고차함수(Map &amp; Reduce &amp; Filter)에 대하여 다룹니다." />
+<link rel="canonical" href="https://dream365.github.io/functional%20programming/fp-map-reduce-filter/" />
+<meta property="og:url" content="https://dream365.github.io/functional%20programming/fp-map-reduce-filter/" />
+<meta property="og:site_name" content="Passion in Development" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-12T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="FP: Map &amp; Reduce &amp; Filter" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Sewon Ko" />
+<script type="application/ld+json">
+{"description":"함수형 프로그래밍의 고차함수(Map &amp; Reduce &amp; Filter)에 대하여 다룹니다.","author":{"@type":"Person","name":"Sewon Ko"},"@type":"BlogPosting","url":"https://dream365.github.io/functional%20programming/fp-map-reduce-filter/","headline":"FP: Map &amp; Reduce &amp; Filter","dateModified":"2020-06-13T04:25:52+09:00","datePublished":"2020-06-12T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://dream365.github.io/functional%20programming/fp-map-reduce-filter/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="Passion in Development" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  fp-map-reduce-filter">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/search/">Search</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">Passion in Development</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Sewon Ko's blog</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">FP: Map &amp; Reduce &amp; Filter
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/sw-profile.png" class="author-avatar u-photo" alt="Sewon Ko"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Sewon Ko</span>
+      </div>
+    <time class="page-date dt-published" datetime="2020-06-12T00:00:00+09:00"><a class="u-url" href="">June 12, 2020</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Functional Programming</li>
+  </ul>
+
+
+        
+  <h3 class="page-taxonomies-title">Tags</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">C#</li><li class="page-taxonomy">C++</li><li class="page-taxonomy">Clojure</li><li class="page-taxonomy">F#</li>
+  </ul>
+
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <p>함수형 프로그래밍의 고차함수(Map &amp; Reduce &amp; Filter)에 대하여 다룹니다.</p>
+
+<p><strong><a href="https://dream365.github.io/functional%20programming/fp-content/" class="btn btn--primary">Functional Progamming 시리즈 목차</a></strong><br /></p>
+
+<h1 id="map-reduce-filter">Map Reduce Filter</h1>
+<p>함수를 파라미터로 받아서 실행하거나 함수를 리턴해주는 함수를 고차함수라고 합니다. 
+Map Reduce Filter는 FP 에서 기초적이면서 가장 자주 사용하는 고차함수들입니다.</p>
+
+<h3 id="map">Map</h3>
+<p>시퀀스의 각 요소를 다른 값으로 매핑 시키는 함수</p>
+
+<h3 id="filter">Filter</h3>
+<p>시퀀스에서 특정 조건의 요소만 필터링 하는 함수</p>
+
+<h3 id="reduce">Reduce</h3>
+<p>시퀀스의 값들을 특정 계산법을 통하여 하나의 값으로 리턴해주는 함수</p>
+
+<p><img src="/images/map-reduce-filter.jpg" alt="ex" /></p>
+
+<hr />
+<h2 id="example">Example</h2>
+<h4 id="c">C++</h4>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span> <span class="p">};</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mapped_seq</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">filtered_seq</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">reduced_value</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">seq</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">seq</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">mapped_seq</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">});</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">copy_if</span><span class="p">(</span><span class="n">mapped_seq</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">mapped_seq</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">filtered_seq</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">});</span>
+    <span class="n">reduced_value</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">filtered_seq</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">filtered_seq</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0</span> <span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span> <span class="p">});</span>
+
+</code></pre></div></div>
+
+<h4 id="c-1">C#</h4>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//System.Linq 추가</span>
+ <span class="kt">var</span> <span class="k">value</span> <span class="p">=</span> <span class="n">seq</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span><span class="p">)</span>    <span class="c1">//map</span>
+                <span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">%</span><span class="m">2</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>           <span class="c1">//filter</span>
+                <span class="p">.</span><span class="nf">Aggregate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">+</span><span class="n">y</span> <span class="p">);</span>      <span class="c1">//reduce</span>
+</code></pre></div></div>
+
+<h4 id="f">F#</h4>
+<div class="language-fsharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">seq</span> <span class="p">=</span> <span class="p">[|</span><span class="mi">1</span><span class="p">;</span><span class="mi">2</span><span class="p">;</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">;</span><span class="mi">5</span><span class="p">|]</span>
+<span class="k">let</span> <span class="n">value</span> <span class="p">=</span> <span class="n">seq</span>
+            <span class="p">|&gt;</span> <span class="nn">Seq</span><span class="p">.</span><span class="n">map</span> <span class="p">(</span><span class="k">fun</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span><span class="p">)</span>
+            <span class="p">|&gt;</span> <span class="nn">Seq</span><span class="p">.</span><span class="n">filter</span> <span class="p">(</span><span class="k">fun</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="p">=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">|&gt;</span> <span class="nn">Seq</span><span class="p">.</span><span class="n">reduce</span> <span class="p">(</span><span class="k">fun</span> <span class="n">x</span> <span class="n">y</span> <span class="p">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="clojure">clojure</h4>
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span><span class="p">[]</span><span class="w"> 
+  </span><span class="p">(</span><span class="nb">reduce</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="w">
+             </span><span class="nb">filter</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="n">%1</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w">
+              </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">%1</span><span class="w"> </span><span class="n">%1</span><span class="p">)</span><span class="w"> </span><span class="nb">seq</span><span class="p">))))</span><span class="w">
+
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">ex2</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">-&gt;&gt;</span><span class="w"> </span><span class="nb">seq</span><span class="w">
+  </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">%1</span><span class="w"> </span><span class="n">%1</span><span class="p">))</span><span class="w">
+  </span><span class="p">(</span><span class="nb">filter</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="nf">mod</span><span class="w"> </span><span class="n">%1</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span><span class="w">
+  </span><span class="p">(</span><span class="nb">reduce</span><span class="w"> </span><span class="nb">+</span><span class="p">))</span><span class="w">
+</span><span class="p">)</span><span class="w">          </span><span class="c1">; -&gt;&gt; 매크로 사용해서 순서를 변경</span><span class="w">
+</span></code></pre></div></div>
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-map-reduce-filter%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--facebook btn--small"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> <span>Share</span></a>
+  <a href="https://twitter.com/intent/tweet?text=FP%3A+Map+%26+Reduce+%26+Filter%20https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-map-reduce-filter%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-map-reduce-filter%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--linkedin btn--small"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> <span>LinkedIn</span></a>
+  <a href="https://reddit.com/submit?title=FP%3A+Map+%26+Reduce+%26+Filter&url=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-map-reduce-filter%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--reddit btn--small"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i> <span>Reddit</span></a>
+</div>
+
+        
+
+        
+          
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/functional%20programming/fp-lambda/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> FP: Lambda
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/functional%20programming/fp-currying/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        FP: Currying
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a><a class="social-icon" href="https://github.com/dream365"><i class="fab fa-github-square fa-2x" title="GitHub"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2020 Passion in Development. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>FP: Option &amp; Either Class | Passion in Development</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="FP: Option &amp; Either Class" />
+<meta name="author" content="Sewon Ko" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="함수형 프로그래밍에서 null과 관련된 처리를 하는 2가지 클래스인 Option과 Either 클래스에 대해서 다룹니다." />
+<meta property="og:description" content="함수형 프로그래밍에서 null과 관련된 처리를 하는 2가지 클래스인 Option과 Either 클래스에 대해서 다룹니다." />
+<link rel="canonical" href="https://dream365.github.io/functional%20programming/fp-option-either/" />
+<meta property="og:url" content="https://dream365.github.io/functional%20programming/fp-option-either/" />
+<meta property="og:site_name" content="Passion in Development" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-26T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="FP: Option &amp; Either Class" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Sewon Ko" />
+<script type="application/ld+json">
+{"description":"함수형 프로그래밍에서 null과 관련된 처리를 하는 2가지 클래스인 Option과 Either 클래스에 대해서 다룹니다.","author":{"@type":"Person","name":"Sewon Ko"},"@type":"BlogPosting","url":"https://dream365.github.io/functional%20programming/fp-option-either/","headline":"FP: Option &amp; Either Class","dateModified":"2019-12-27T04:25:52+09:00","datePublished":"2019-12-26T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://dream365.github.io/functional%20programming/fp-option-either/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="Passion in Development" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  fp-option-either-class">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/search/">Search</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">Passion in Development</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Sewon Ko's blog</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">FP: Option &amp; Either Class
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/sw-profile.png" class="author-avatar u-photo" alt="Sewon Ko"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Sewon Ko</span>
+      </div>
+    <time class="page-date dt-published" datetime="2019-12-26T00:00:00+09:00"><a class="u-url" href="">December 26, 2019</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Functional Programming</li>
+  </ul>
+
+
+        
+  <h3 class="page-taxonomies-title">Tags</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Java</li><li class="page-taxonomy">Kotlin</li><li class="page-taxonomy">Scala</li>
+  </ul>
+
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <p>함수형 프로그래밍에서 null과 관련된 처리를 하는 2가지 클래스인 Option과 Either 클래스에 대해서 다룹니다.</p>
+
+<p><strong><a href="https://dream365.github.io/functional%20programming/fp-content/" class="btn btn--primary">Functional Progamming 시리즈 목차</a></strong><br /></p>
+
+<h2 id="option-class">Option class</h2>
+<p>값이 있는지 없는지 여부를 체크하기 위한 타입으로, null이나 error Checking을 안전하게 할 수 있습니다.</p>
+
+<h3 id="장점">장점</h3>
+<ul>
+  <li>null checking을 코드단에서 명시적으로 하여, 좀 더 안정적으로 체크할 수 있습니다.</li>
+  <li>값을 체이닝하여 가져올때 중간에 문제가 생길 수 있는 부분을 안정적으로 처리할 수 있습니다.</li>
+</ul>
+
+<hr />
+<h2 id="example">Example</h2>
+<h4 id="java">JAVA</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">alphaNumMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">alphaNumMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"A"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">alphaNumMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"B"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+
+<span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">aValue</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">alphaNumMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"A"</span><span class="o">));</span>
+<span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">cValue</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">alphaNumMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"C"</span><span class="o">));</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">aValue</span><span class="o">.</span><span class="na">orElseGet</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="mi">3</span><span class="o">))</span> <span class="c1">//값이 없다면 3 출력(같은 자료형이여야 합니다.)</span>
+
+<span class="k">if</span><span class="o">(</span><span class="n">cValue</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="c1">//값이 존재한다면</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cValue</span><span class="o">.</span><span class="na">get</span><span class="o">())</span>
+<span class="k">else</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="err">"</span><span class="nc">Nothing</span><span class="o">)</span> <span class="c1">//값이 존재하지 않으므로 Nothing 출력됩니다.</span>
+</code></pre></div></div>
+
+<h4 id="kotlin">KOTLIN</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">alphaNumMap</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="s">"A"</span> <span class="n">to</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"B"</span> <span class="n">to</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="kd">val</span> <span class="py">aValue</span><span class="p">:</span> <span class="nc">Int</span><span class="p">?</span> <span class="p">=</span> <span class="n">alphaNumMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"A"</span><span class="p">)</span> <span class="c1">//코틀린에는 Option 클래스 대신 null checking을 해주는 ? 문법이 있습니다.</span>
+<span class="kd">val</span> <span class="py">cValue</span><span class="p">:</span> <span class="nc">Int</span><span class="p">?</span> <span class="p">=</span> <span class="n">alphaNumMap</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"C"</span><span class="p">)</span>
+
+<span class="nf">println</span><span class="p">(</span><span class="n">aValue</span> <span class="o">?:</span> <span class="s">"Nothing"</span><span class="p">)</span> <span class="c1">// ?:(elvis operator)를 사용하여 null일때 대체될 값을 정할 수 있습니다.</span>
+
+<span class="n">cValue</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span> <span class="o">?:</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Nothing"</span><span class="p">)</span> <span class="c1">// let 구문을 활용하여 null이 아닐때와 null일때의 처리를 명시적으로 할 수 있습니다.</span>
+</code></pre></div></div>
+
+<h4 id="scala">SCALA</h4>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">alphaNumMap</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="s">"A"</span><span class="o">-&gt;</span> <span class="mi">1</span><span class="o">,</span> <span class="s">"B"</span><span class="o">-&gt;</span> <span class="mi">2</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="nv">aValue</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nv">alphaNumMap</span><span class="o">.</span><span class="py">get</span><span class="o">(</span><span class="s">"A"</span><span class="o">)</span> <span class="c1">//값이 있다면 Option의 하위 함수인 Some[T]가 값을 받습니다.</span>
+<span class="k">val</span> <span class="nv">cValue</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nv">alphaNumMap</span><span class="o">.</span><span class="py">get</span><span class="o">(</span><span class="s">"C"</span><span class="o">)</span> <span class="c1">//값이 없다면 Option의 하위 함수인 None이 생성됩니다.</span>
+
+<span class="nf">println</span><span class="o">(</span><span class="nv">aValue</span><span class="o">.</span><span class="py">getOrElse</span><span class="o">(</span><span class="s">"Nothing"</span><span class="o">))</span> <span class="c1">// 1 출력</span>
+
+<span class="nf">if</span><span class="o">(</span><span class="nv">cValue</span><span class="o">.</span><span class="py">isDefined</span><span class="o">)</span> <span class="c1">//값이 존재한다면</span>
+  <span class="nf">println</span><span class="o">(</span><span class="nv">cValue</span><span class="o">.</span><span class="py">get</span><span class="o">)</span>
+<span class="k">else</span>
+  <span class="nf">println</span><span class="o">(</span><span class="s">"Nothing"</span><span class="o">)</span> <span class="c1">//값이 존재하지 않으므로 Nothing 출력</span>
+</code></pre></div></div>
+<hr />
+<h1 id="either-class">Either class</h1>
+<p>Option 클래스에서는 null 여부를 체크할 수 있지만, null일 때 어떤 값을 주입시켜주거나 할 수 없습니다. 하지만 Either에서는 Option과 달리(Null과 다른 값) 하나의 값과 Null일때의 다른 값 2가지 다른 자료형을 갖을 수 있는 값을 다루어 이를 처리할 수 있습니다.</p>
+
+<h3 id="장점-1">장점</h3>
+<ul>
+  <li>null checking시 null일 때 대신 처리할 값을 처리할 수 있습니다.</li>
+  <li>에러 상황에서 에러와 에러가 나지 않는 상황에서 얻을 수 있는 값을 한번에 처리할 수 있습니다.</li>
+</ul>
+
+<hr />
+<h2 id="example-1">Example</h2>
+<h4 id="java-1">JAVA</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Either 클래스와 같은 개념이 존재하지 않습니다.</span>
+</code></pre></div></div>
+
+<h4 id="kotlin-1">KOTLIN</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Either 클래스와 같은 개념이 존재하지 않습니다.</span>
+</code></pre></div></div>
+
+<h4 id="scala-1">SCALA</h4>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="nv">either</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">NumberFormatException</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="k">try</span> <span class="o">{</span>
+  <span class="nc">Right</span><span class="o">(</span><span class="s">"x"</span><span class="o">.</span><span class="py">toInt</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="n">nfe</span><span class="k">:</span> <span class="kt">NumberFormatException</span> <span class="o">=&gt;</span> <span class="nc">Left</span><span class="o">(</span><span class="n">nfe</span><span class="o">)</span> <span class="c1">//에러 상황을 LEFT에 올바른 값을 RIGHT에 담아서 한번에 처리할 수 있습니다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-option-either%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--facebook btn--small"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> <span>Share</span></a>
+  <a href="https://twitter.com/intent/tweet?text=FP%3A+Option+%26+Either+Class%20https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-option-either%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-option-either%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--linkedin btn--small"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> <span>LinkedIn</span></a>
+  <a href="https://reddit.com/submit?title=FP%3A+Option+%26+Either+Class&url=https%3A%2F%2Fdream365.github.io%2Ffunctional%2520programming%2Ffp-option-either%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--reddit btn--small"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i> <span>Reddit</span></a>
+</div>
+
+        
+
+        
+          
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/functional%20programming/fp-introduction/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> FP: Introduction
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/functional%20programming/fp-memoization/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        FP: Memoization
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a><a class="social-icon" href="https://github.com/dream365"><i class="fab fa-github-square fa-2x" title="GitHub"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2020 Passion in Development. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

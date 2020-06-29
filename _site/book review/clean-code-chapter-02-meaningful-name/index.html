@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Clean Code: Chapter 02 Meaningful Names | Passion in Development</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Clean Code: Chapter 02 Meaningful Names" />
+<meta name="author" content="Sewon Ko" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="더 좋은 프로그램을 작성하기 위하여 깨끗한 코드를 작성하는 방법에 대해 다루는 Robert C. Martin의 Clean Code를 정리하는 post입니다." />
+<meta property="og:description" content="더 좋은 프로그램을 작성하기 위하여 깨끗한 코드를 작성하는 방법에 대해 다루는 Robert C. Martin의 Clean Code를 정리하는 post입니다." />
+<link rel="canonical" href="https://dream365.github.io/book%20review/clean-code-chapter-02-meaningful-name/" />
+<meta property="og:url" content="https://dream365.github.io/book%20review/clean-code-chapter-02-meaningful-name/" />
+<meta property="og:site_name" content="Passion in Development" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-28T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Clean Code: Chapter 02 Meaningful Names" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Sewon Ko" />
+<script type="application/ld+json">
+{"description":"더 좋은 프로그램을 작성하기 위하여 깨끗한 코드를 작성하는 방법에 대해 다루는 Robert C. Martin의 Clean Code를 정리하는 post입니다.","author":{"@type":"Person","name":"Sewon Ko"},"@type":"BlogPosting","url":"https://dream365.github.io/book%20review/clean-code-chapter-02-meaningful-name/","headline":"Clean Code: Chapter 02 Meaningful Names","dateModified":"2020-06-29T05:10:00+09:00","datePublished":"2020-06-28T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://dream365.github.io/book%20review/clean-code-chapter-02-meaningful-name/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="Passion in Development" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  clean-code-chapter-02-meaningful-names">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/search/">Search</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">Passion in Development</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Sewon Ko's blog</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">Clean Code: Chapter 02 Meaningful Names
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/sw-profile.png" class="author-avatar u-photo" alt="Sewon Ko"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Sewon Ko</span>
+      </div>
+    <time class="page-date dt-published" datetime="2020-06-28T00:00:00+09:00"><a class="u-url" href="">June 28, 2020</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Book Review</li>
+  </ul>
+
+
+        
+  <h3 class="page-taxonomies-title">Tags</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">Clean Code</li>
+  </ul>
+
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <blockquote>
+  <p>더 좋은 프로그램을 작성하기 위하여 깨끗한 코드를 작성하는 방법에 대해 다루는 <strong><em>Robert C. Martin</em></strong>의 <strong><em>Clean Code</em></strong>를 정리하는 post입니다.</p>
+</blockquote>
+
+<p><img src="/images/clean-code-cover.png" alt="logo" /></p>
+
+<div id="entry-table-of-contents" class="toc-wrapper">
+  <h2 id="toc-toggle" class="no_toc">
+  Table of Contents <i class="toc-toggle-icon fas fa-chevron-down"></i>
+</h2>
+<ol id="markdown-toc">
+  <li><a href="#의도를-분명히-밝혀라" id="markdown-toc-의도를-분명히-밝혀라">의도를 분명히 밝혀라</a></li>
+  <li><a href="#그릇된-정보를-피하라" id="markdown-toc-그릇된-정보를-피하라">그릇된 정보를 피하라</a></li>
+  <li><a href="#의미-있게-구분하라" id="markdown-toc-의미-있게-구분하라">의미 있게 구분하라</a></li>
+  <li><a href="#발음하기-쉬운-이름을-사용하라" id="markdown-toc-발음하기-쉬운-이름을-사용하라">발음하기 쉬운 이름을 사용하라</a></li>
+  <li><a href="#검색하기-쉬운-이름을-사용하라" id="markdown-toc-검색하기-쉬운-이름을-사용하라">검색하기 쉬운 이름을 사용하라</a></li>
+  <li><a href="#인코딩을-피하라" id="markdown-toc-인코딩을-피하라">인코딩을 피하라</a></li>
+  <li><a href="#자신의-기억력을-자랑하지-마라" id="markdown-toc-자신의-기억력을-자랑하지-마라">자신의 기억력을 자랑하지 마라</a></li>
+  <li><a href="#클래스-이름" id="markdown-toc-클래스-이름">클래스 이름</a></li>
+  <li><a href="#메서드-이름" id="markdown-toc-메서드-이름">메서드 이름</a></li>
+  <li><a href="#한-개념에-한-단어를-사용하라" id="markdown-toc-한-개념에-한-단어를-사용하라">한 개념에 한 단어를 사용하라</a></li>
+  <li><a href="#말장난을-하지-마라" id="markdown-toc-말장난을-하지-마라">말장난을 하지 마라</a></li>
+  <li><a href="#해법-영역에서-가져온-이름을-사용하라-그-다음-문제-영역에서-가져온-이름을-사용하라" id="markdown-toc-해법-영역에서-가져온-이름을-사용하라-그-다음-문제-영역에서-가져온-이름을-사용하라">해법 영역에서 가져온 이름을 사용하라, 그 다음 문제 영역에서 가져온 이름을 사용하라</a></li>
+  <li><a href="#의미-있는-맥락을-추가하라" id="markdown-toc-의미-있는-맥락을-추가하라">의미 있는 맥락을 추가하라</a></li>
+  <li><a href="#불필요한-맥락을-없애라" id="markdown-toc-불필요한-맥락을-없애라">불필요한 맥락을 없애라</a></li>
+</ol>
+
+</div>
+
+<p>소프트웨어에는 많은 이름이 들어가 있다.(변수, 함수, 클래스, 모듈, 디렉터리 등)</p>
+
+<p>이렇듯 어디에나 들어 있는 <strong>이름</strong>을 잘 지어야 편하다.</p>
+
+<h2 id="의도를-분명히-밝혀라">의도를 분명히 밝혀라</h2>
+<p><strong>좋은 이름</strong>을 지으려면 <strong>시간</strong>이 많이 걸리지만, <strong>좋은 이름</strong>을 지어 놓으면 그것보다 더 많은 <strong>시간</strong>을 <strong>절약</strong>할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">d</span><span class="o">;</span> <span class="c1">// 아무 의미로 들어나지 않는다, 값과 단위를 표현하는 이름을 사용하자</span>
+
+<span class="kt">int</span> <span class="n">elapsedTimeInDays</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">daysSinceCreation</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">daysSinceModification</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">fileAgeIndays</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>아래의 예를 살펴보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="nf">getThem</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;();</span>
+  
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">x</span> <span class="o">:</span> <span class="n">theList</span><span class="o">)</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="n">x</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">)</span>
+            <span class="n">list1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+    
+    <span class="k">return</span> <span class="n">list1</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>코드는 단순하나, 무엇을 하는지 짐작하기가 어렵다.</p>
+
+<ol>
+  <li>theList는 무엇을 의미하나?</li>
+  <li>0번째 원소를 검사하는 이유는?</li>
+  <li>값 4는 무엇을 의미하나?</li>
+  <li>list1을 반환하는 이유는?</li>
+</ol>
+
+<p>중요한건, 코드의 <strong>단순성</strong>이 아니라 코드의 <strong>함축성</strong>이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="nf">getFlaggedCells</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">flaggedCells</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;();</span>
+  
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">cell</span> <span class="o">:</span> <span class="n">gameBoard</span><span class="o">)</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="n">cell</span><span class="o">[</span><span class="no">STATUS_VALUE</span><span class="o">]</span> <span class="o">==</span> <span class="no">FLAGGED</span> <span class="o">)</span>
+            <span class="n">flaggedCells</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">cell</span><span class="o">);</span>
+    
+    <span class="k">return</span> <span class="n">flaggedCells</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>theList를 gameBoard(게임판)으로 바꾸고, 값 4는 깃발이 꽂힌 상태를 표현해보자.</p>
+
+<p>훨씬, 보기가 나아진다.(<strong>개념</strong>에 <strong>이름</strong>만 붙여도 코드가 훨씬 나아진다.)</p>
+
+<h2 id="그릇된-정보를-피하라">그릇된 정보를 피하라</h2>
+<p>프로그래머는 <strong>코드</strong>에 <strong>그릇된 정보</strong>를 남기면 안된다.</p>
+
+<p>유사한 <strong>개념</strong>은 유사한 <strong>표기법</strong>을 사용하자. 일관성이 떨어지는 표기법은 <strong>그릇된 정보</strong>다.</p>
+
+<h2 id="의미-있게-구분하라">의미 있게 구분하라</h2>
+
+<p><strong>이름</strong>이 달라야 한다면 <strong>의미</strong>도 달라야 한다.</p>
+
+<p>불용어(Info, Data, 연속적인 숫자 등 의미 없는 단어)를 사용하지 말자.</p>
+
+<p>읽는 사람이 <strong>차이</strong>를 알도록 <strong>이름</strong>을 지어야 한다.</p>
+
+<h2 id="발음하기-쉬운-이름을-사용하라">발음하기 쉬운 이름을 사용하라</h2>
+<p>모든 <strong>단어</strong>는 발음이 가능하다. 그니깐 쉬운 토론을 위해 <strong>발음하기 쉬운</strong> 이름을 사용하자.</p>
+
+<p>i.e. genymdhms (generate date, year, month, day, hour, minute, second)</p>
+<ul>
+  <li>젠 와이 엠 디 에이취 엠 에스?</li>
+  <li>젠 이 음 드 흠 스?</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">DtaRcrd102</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Date</span> <span class="n">genymdhms</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Date</span> <span class="n">modymdhms</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">pszqint</span> <span class="o">=</span> <span class="s">"102"</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Date</span> <span class="n">generationTimestamp</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Date</span> <span class="n">modificationTimestamp</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">recordId</span> <span class="o">=</span> <span class="s">"102"</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>두번째 코드는 지적인 대화가 가능해진다.</p>
+
+<h2 id="검색하기-쉬운-이름을-사용하라">검색하기 쉬운 이름을 사용하라</h2>
+
+<p><strong>문자 하나를 사용하는 이름</strong>과 <strong>상수</strong>는 검색이 힘들다.</p>
+
+<ul>
+  <li>숫자 7(상수)를 검색하면 7이 들어가는 모든 파일, 수식이 검색된다.</li>
+  <li>e라는 문자를 변수로 사용하여 검색하면 e를 포함하는 모든 단어가 포함된 파일이 검색된다.</li>
+</ul>
+
+<h2 id="인코딩을-피하라">인코딩을 피하라</h2>
+
+<p>이미 이름은 충분히 정보가 많다. 추가적인 인코딩은 <strong>부담</strong>이 될 뿐이다.</p>
+
+<ul>
+  <li>강타입과 더 똑똑해진 IDE(타입 오류 감지)가 나온 세상에서 헝가리식 표기법, 기타 인코딩 방식은 불필요하다,.</li>
+  <li>m_ 과 같은 접두어 또한 불필요하다.</li>
+  <li>인터페이스 이름은 접두어를 붙이지 않는 편이 좋다(ShapeFactoryImp나 CShapeFactory가 IShapeFactory보다 낫다고 생각)</li>
+</ul>
+
+<h2 id="자신의-기억력을-자랑하지-마라">자신의 기억력을 자랑하지 마라</h2>
+<p>문자 하나만 사용하는 변수 등 <strong>자신만 아는 이름</strong>으로 변수를 짓는것은 바람직하지 못하다.</p>
+
+<h2 id="클래스-이름">클래스 이름</h2>
+
+<p><strong>클래스 이름</strong>은 <strong>명사</strong>나 <strong>명사구</strong>가 적합하다. (Manager, Processor, Data, Info 등과 같은 명료하지 않은 단어, 동사는 피하자)</p>
+
+<h2 id="메서드-이름">메서드 이름</h2>
+<p><strong>메서드 이름</strong>은 <strong>동사</strong>나 <strong>동사구</strong>가 적합하다. (addPage, deleteAccount, save 등)</p>
+
+<p><strong>접근자(Accessor)</strong>, <strong>변경자(Mutator)</strong>, <strong>조건자(Predicate)</strong>는 javabean 표준에 따라 값 앞에 <strong>get</strong>, <strong>set</strong>, <strong>is</strong>를 붙인다.</p>
+
+<h2 id="한-개념에-한-단어를-사용하라">한 개념에 한 단어를 사용하라</h2>
+
+<p><strong>추상적인 개념</strong> 하나에 <strong>단어 하나</strong>를 선택해 이를 고수한다.(<strong>일관성 있는 어휘</strong>를 사용하자)</p>
+
+<ul>
+  <li>똑같은 메서드를 클래스마다 fetch, retrieve, get으로 제각각 부르지 말자(주석을 뒤져보지 않고도 프로그래머가 올바른 메서드 선택을 할 수 있어야 한다.)</li>
+  <li>동일 코드 기반에 controller, manager, driver라는 클래스명을 제각각 사용하여 혼란을 주지 말자.(다르게 명명한 기준을 독자는 알지 못한다.)</li>
+</ul>
+
+<h2 id="말장난을-하지-마라">말장난을 하지 마라</h2>
+
+<p><strong>한 단어</strong>를 <strong>두 가지 목적</strong>으로 사용하지 마라.</p>
+
+<p><strong>일관성</strong>을 고려해 맥락이 다른 메서드를 같은 이름으로 명명하지 마라.</p>
+
+<h2 id="해법-영역에서-가져온-이름을-사용하라-그-다음-문제-영역에서-가져온-이름을-사용하라">해법 영역에서 가져온 이름을 사용하라, 그 다음 문제 영역에서 가져온 이름을 사용하라</h2>
+
+<p><strong>독자</strong> 또한 프로그래머다. 그러므로 <strong>전산 용어, 알고리즘 이름, 패턴 이름, 수학 용어</strong> 등을 사용해도 괜찮다.</p>
+
+<p>하지만, 적절한 <strong>해법 영역</strong> 용어가 없다면 그 때, <strong>문제 영역(domain)</strong>에서 이름을 가져오자. 그러면 프로그래머가 분야 전문가에게 의미를 물어 파악할 수 있다. (모든 이름을 문제 영역에서 가져오면 매번 그 의미를 물어야 한다.)</p>
+
+<h2 id="의미-있는-맥락을-추가하라">의미 있는 맥락을 추가하라</h2>
+
+<p>스스로 <strong>의미</strong>가 분명한 <strong>이름</strong>은 없다. 따라서 클래스, 함수, 이름 공간에 넣어 <strong>맥락</strong>을 부여 한다.</p>
+
+<ul>
+  <li>firstName, lastName, street, city, state라는 변수가 있다면, 이 맥락 속에서 state가 주소라는 사실을 알 수있다. 하지만 state 변수 하나만 있다면 알 수가 없다.</li>
+  <li>혹은 Address라는 클래스를 생성하면 더 좋다. 그러면 컴파일러에게도 Address라는 개념에 변수들이 속한다는 것을 알려줄 수 있다.</li>
+</ul>
+
+<p>모든 방법이 실패하면 <strong>접두어</strong>를 붙이자.</p>
+
+<ul>
+  <li>addrFirstName, addrLastName, addrCity, addrState</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">void</span> <span class="nf">printGuessStatistics</span><span class="o">(</span><span class="kt">char</span> <span class="n">candidate</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">number</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">verb</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="n">pluralModifier</span><span class="o">;</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="s">"no"</span><span class="o">;</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="s">"are"</span><span class="o">;</span>
+        <span class="n">pluralModifier</span> <span class="o">=</span> <span class="s">"s"</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="s">"is"</span><span class="o">;</span>
+        <span class="n">pluralModifier</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="s">"are"</span><span class="o">;</span>
+        <span class="n">pluralModifier</span> <span class="o">=</span> <span class="s">"s"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nc">String</span> <span class="n">guessMessage</span> <span class="o">=</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span>
+        <span class="s">"There %s %s %s%s"</span><span class="o">,</span> <span class="n">verb</span><span class="o">,</span> <span class="n">number</span><span class="o">,</span> <span class="n">candidate</span><span class="o">,</span> <span class="n">pluralModifier</span><span class="o">);</span>
+
+    <span class="n">print</span><span class="o">(</span><span class="n">guessMessage</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위의 예제에서 함수를 끝까지 읽어 보아야 number, verb, pluralModifier 변수가 <strong>‘통계 추측’</strong> 메시지에 사용된다는 사실을 알 수 있다. 독자는 코드를 읽어 그 <strong>맥락</strong>을 유추해야 한다.</p>
+
+<p>또한 세 변수를 함수 전반에서 사용한다. 함수를 작은 조각으로 쪼개어 <strong>GuessStatisticsMessage</strong>라는 클래스를 만든 후 해당 클래스에 넣어 사용하자. 그렇게 하면 세 변수의 <strong>맥락</strong>이 분명해지고, 함수를 쪼개기가 쉬워지므로 알고리즘도 좀 더 <strong>명확</strong>해진다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GuessStatisticsMessage</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">number</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">verb</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">pluralModifier</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">make</span><span class="o">(</span><span class="kt">char</span> <span class="n">candidate</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">createPluralDependentMessageParts</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"There %s %s %s%s"</span><span class="o">,</span> <span class="n">verb</span><span class="o">,</span> <span class="n">number</span><span class="o">,</span> <span class="n">candidate</span><span class="o">,</span> <span class="n">pluralModifier</span> <span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">createPluralDependentMessageParts</span><span class="o">(</span><span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">thereAreNoLetters</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">thereIsOneLetter</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">thereAreManyLetters</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">thereAreManyLetters</span><span class="o">(</span><span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="s">"are"</span><span class="o">;</span>
+        <span class="n">pluralModifier</span> <span class="o">=</span> <span class="s">"s"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">thereIsOneLetter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="s">"is"</span><span class="o">;</span>
+        <span class="n">pluralModifier</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">thereAreNoLetters</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="s">"no"</span><span class="o">;</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="s">"are"</span><span class="o">;</span>
+        <span class="n">pluralModifier</span> <span class="o">=</span> <span class="s">"s"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="불필요한-맥락을-없애라">불필요한 맥락을 없애라</h2>
+<p>그 의미가 분명한 경우에는 <strong>짧은 이름</strong>이 <strong>긴 이름</strong>보다 좋다.</p>
+
+<ul>
+  <li>accountAddress, customerAddress는 Address 클래스 인스턴스로 좋은 이름이다.</li>
+  <li>Address는 클래스 이름으로써 좋은 이름이다.</li>
+</ul>
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdream365.github.io%2Fbook%2520review%2Fclean-code-chapter-02-meaningful-name%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--facebook btn--small"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> <span>Share</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Clean+Code%3A+Chapter+02+Meaningful+Names%20https%3A%2F%2Fdream365.github.io%2Fbook%2520review%2Fclean-code-chapter-02-meaningful-name%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdream365.github.io%2Fbook%2520review%2Fclean-code-chapter-02-meaningful-name%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--linkedin btn--small"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> <span>LinkedIn</span></a>
+  <a href="https://reddit.com/submit?title=Clean+Code%3A+Chapter+02+Meaningful+Names&url=https%3A%2F%2Fdream365.github.io%2Fbook%2520review%2Fclean-code-chapter-02-meaningful-name%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--reddit btn--small"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i> <span>Reddit</span></a>
+</div>
+
+        
+
+        
+          
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/book%20review/clean-code-chapter-01-clean-code/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> Clean Code: Chapter 01 Clean Code
+
+      </span>
+    </a>
+  
+
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a><a class="social-icon" href="https://github.com/dream365"><i class="fab fa-github-square fa-2x" title="GitHub"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2020 Passion in Development. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

@@ -3,7 +3,6 @@ title: "FP: Currying"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - C++
   - C#
   - F#

@@ -1,9 +1,8 @@
 ---
 title: "Clean Code: Chapter 02 Meaningful Names"
 categories:
-  - Clean Code
-tags:
   - Book Review
+tags:
   - Clean Code
 author:
   name: Sewon Ko

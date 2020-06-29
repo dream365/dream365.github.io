@@ -3,7 +3,6 @@ title: "FP: Map & Reduce & Filter"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - C++
   - C#
   - F#

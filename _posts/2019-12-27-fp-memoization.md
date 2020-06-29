@@ -3,7 +3,6 @@ title: "FP: Memoization"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - Kotlin
   - Scala
 author:

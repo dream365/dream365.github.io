@@ -3,7 +3,6 @@ title: "FP: Recursive Function"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - Kotlin
   - Scala
 author:

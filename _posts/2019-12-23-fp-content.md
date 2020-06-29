@@ -2,8 +2,6 @@
 title: "Functional Programming Contents"
 categories:
   - Functional Programming
-tags:
-  - Functional Programming
 hidden: true
 author:
   name: Sewon Ko

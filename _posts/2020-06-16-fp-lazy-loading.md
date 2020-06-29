@@ -3,7 +3,6 @@ title: "FP: Lazy Loading"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - C#
   - F#
   - Clojure

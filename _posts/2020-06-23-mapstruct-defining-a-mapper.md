@@ -1,10 +1,10 @@
 ---
 title: "MapStruct: Defining a mapper"
 categories:
-  - MapStruct
+  - Library 
 tags:
-  - Java
   - MapStruct
+  - Java
 author:
   name: Sewon Ko
   picture: /images/sw-profile.png

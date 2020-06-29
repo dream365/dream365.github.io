@@ -3,7 +3,6 @@ title: "FP: Pattern Matching & Destruction"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - C++
   - C#
   - F#

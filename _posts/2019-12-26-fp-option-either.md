@@ -3,7 +3,6 @@ title: "FP: Option & Either Class"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - Java
   - Kotlin
   - Scala

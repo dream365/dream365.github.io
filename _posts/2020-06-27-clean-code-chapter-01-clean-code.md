@@ -1,9 +1,8 @@
 ---
 title: "Clean Code: Chapter 01 Clean Code"
 categories:
-  - Clean Code
-tags:
   - Book Review
+tags:
   - Clean Code
 author:
   name: Sewon Ko

@@ -3,7 +3,6 @@ title: "FP: Introduction"
 categories:
   - Functional Programming
 tags:
-  - Functional Programming
   - Kotlin
 author:
   name: Sewon Ko

@@ -10,9 +10,9 @@ author:
 last_modified_at: 2020-08-19T10:18:00-00:00
 ---
 
-> Kotlin의 **Scoping Function**에 대하여 다루는 post입니다.
+Kotlin의 **Scoping Function**에 대하여 다루는 post입니다.
 
-## Scoping Function의 
+## Scoping Function의 속성
 
 ### 1. Normal vs extension function
 

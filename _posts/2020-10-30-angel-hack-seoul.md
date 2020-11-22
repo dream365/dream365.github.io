@@ -14,6 +14,8 @@ last_modified_at: 2020-10-30T18:46:00-00:00
 
 [![angelhack](/images/Angelhack.png)](https://angelhackseoul.kr/)
 
+[![Github Repo](https://img.shields.io/badge/Github_Repo-blue?logo=github&style=for-the-badge&link=https://github.com/Nugux)](https://github.com/Nugux)
+
 {% include toc %}
 
 ## 참가
@@ -77,6 +79,16 @@ Ideation 미팅 속에서 여러가지 소상 공인들을 위한 솔류션에 �
 
 그렇게 관광지 정보, 혼잡도, 요일별 혼잡도에 대한 개발은 5일 정도 소모하여 끝나게 되었고 엄청난 수고가 들어간 FE 개발까지 마쳐 모든 개발 과정이 종료되었다.
 
+## 후기
+
+결론적으로 우리는 나름 훌륭한 비즈니스 모델과 뷰라고 생각하였지만 다른 훌륭한 팀들의 프로젝트에 밀려 수상은 하지 못했다.
+
+기획자와 디자이너의 필요성과 위대함에 대해 4명 모두 엄청난 공감을 하였으며, 다음에 다른 대회에 참가할때는 훌륭한 분들을 영입하여 모셔오자고 다짐했다.
+
+거의 일주일동안의 짧지 않은 시간동안의 개발이였지만, 오랜만에 많은 작업량과 집중력을 갖고 한 작업이여서 뜻깊고 개발에 대한 열정을 불태울수 :fire::fire: 있는 소중한 시간이였다.
+
+향후에도, 다른 해커톤이나 대회가 있다면 꾸준하게 참여할 생각이며, 디자인은 선천적인 재능의 문제로 불가능 할 것 같지만, 기획에 대해서도 좀 더 공부하여 기획력을 늘려 참가해보고 싶다.
+
 ### UI
 
 ![Angelhack 01](/images/Angelhack_01.png)
@@ -86,5 +98,3 @@ Ideation 미팅 속에서 여러가지 소상 공인들을 위한 솔류션에 �
 ![Angelhack 03](/images/Angelhack_03.png)
 
 ![Angelhack 04](/images/Angelhack_04.png)
-
-## 후기

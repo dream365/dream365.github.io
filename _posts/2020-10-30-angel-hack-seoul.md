@@ -1,5 +1,5 @@
 ---
-title: "Angel Hack Seoul 과정 및 후기"
+title: "Angel Hack Seoul 2020"
 categories:
   - Project
 tags:

@@ -1,5 +1,5 @@
 ---
-title: "LeetCode 0003. Longest Substring Without Repeating Characters"
+title: "Angel Hack Seoul 과정 및 후기"
 categories:
   - Project
 tags:
@@ -35,6 +35,7 @@ last_modified_at: 2020-10-30T18:46:00-00:00
 Ideation 미팅 속에서 여러가지 소상 공인들을 위한 솔류션에 대한 Idea들이 샘솟았고 그 Idea들을 주르륵 리스팅하였다.
 
 ![angel_hack_idation](/images/Angelhack_Ideation.jpeg)
+
 수많은 대화의 기록들..
 
 길어지는 Ideation속에서 하나로 주제가 좁혀지지 않았고, 어떻게 하면 좁힐 수 있을까 생각하여 솔루션에 대해서 해당 주제가 제공할 수 있는 이점(메트릭)을 선정하고 각자 점수를 매겨 하나의 주제가 선정되었다.
@@ -57,9 +58,33 @@ Ideation 미팅 속에서 여러가지 소상 공인들을 위한 솔류션에 �
 
 <center><strong>전체적인 아키텍처 디자인</strong></center>
 
+
 다른 개발자 친구가 tmap api와 관광지 정보 api의 연동 및 데이터를 생성해주는 컴포넌트의 개발을 맡았고, 나는 해당 데이터들을 가공하여 DB에 넣고 조회하는 로직 설계 및 API를 개발을 맡아 진행하였다.
 
 하지만, 개발 시작부터 크나큰 난관에 봉착했다.. 원래는 Geo Query를 위하여 RDBMS로 선택한 postgres의 extension인 [PostGIS](https://postgis.net/)를 사용하려 했으나 테스트 과정에서 원하던 데로 조회가 안되는 문제가 있었다.
 
 해당 문제로 퇴근 후 얼마없는 소중한 개발 시간을 날렸고 결국 위경도 좌표를 받아와 range 쿼리하는 식으로 대체하였다.
 
+나머지는 순조롭게 진행되어 tmap api를 통해 혼잡도를 level별로 받아(1~10) 클라이언트에게 **혼잡, 덜혼잡, 혼잡하지 않음** 3가지로 표시하는 API를 개발하였다.
+
+이 후, 관광지 API를 사용하여 지도 View 안에 있는 모든 지역의 관광지 리스트를 출력해주려 했는데, 2차 문제가 생겼다.. :cry: :cry:
+
+관광지 API 사용에 대한 신청과 발급까지의 기간이 꽤 길어 해커톤이 끝나야 발급되는 상황이였다.
+
+![crying duck](/images/Crying_Duck.jpg)
+
+문제를 어떻게든 해결하려고 관광지 정보를 페이지 별로 파싱해 파일로 저장하여 불러와서 써야 되나 하는 고민에 빠진 찰나, 친절하게도 SPARQL로 관광지 데이터를 쿼리할 수 있는 페이지가 있어 해당 서비스로 관광지 정보를 긁어와 파일로 저장하였다.
+
+그렇게 관광지 정보, 혼잡도, 요일별 혼잡도에 대한 개발은 5일 정도 소모하여 끝나게 되었고 엄청난 수고가 들어간 FE 개발까지 마쳐 모든 개발 과정이 종료되었다.
+
+### UI
+
+![Angelhack 01](/images/Angelhack_01.png)
+
+![Angelhack 02](/images/Angelhack_02.png)
+
+![Angelhack 03](/images/Angelhack_03.png)
+
+![Angelhack 04](/images/Angelhack_04.png)
+
+## 후기
